@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Wikiloc - https://www.wikiloc.com" version="1.1" xmlns="http://www.topografix.com/GPX/1/1"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+    <metadata>
+        <name>Wikiloc - Panoramica madrid</name>
+        <author>
+            <name>vmoscardo</name>
+            <link href="https://www.wikiloc.com/wikiloc/user.do?id=1931448">
+                <text>vmoscardo on Wikiloc</text>
+            </link>
+        </author>
+        <link href="https://www.wikiloc.com/car-trails/panoramica-madrid-12109675">
+            <text>Panoramica madrid on Wikiloc</text>
+        </link>
+        <time>2016-01-30T13:41:52Z</time>
+    </metadata>
+    <trk>
+        <name>Panoramica madrid</name>
+        <cmt></cmt>
+        <desc></desc>
+        <trkseg>
+            <trkpt lat="40.492861" lon="-3.593716">
+                <ele>877.089</ele>
+                <time>2016-01-30T11:32:41Z</time>
+            </trkpt>
+            <trkpt lat="40.492528" lon="-3.593178">
+                <ele>842.006</ele>
+                <time>2016-01-30T11:32:42Z</time>
+            </trkpt>
+            <trkpt lat="40.493062" lon="-3.593395">
+                <ele>895.026</ele>
+                <time>2016-01-30T11:32:43Z</time>
+            </trkpt>
+        </trkseg>
+    </trk>
+</gpx>

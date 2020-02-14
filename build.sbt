@@ -15,6 +15,7 @@ assemblyMergeStrategy in assembly := {
 
 resolvers += "Osgeo Repo" at "http://download.osgeo.org/webdav/geotools/"
 resolvers += "Boundless" at "http://repo.boundlessgeo.com/main"
+resolvers += "Bintray" at "https://jcenter.bintray.com/"
 
 libraryDependencies ++= coreDependencies
 dependencyOverrides ++= coreDependencyOverrides

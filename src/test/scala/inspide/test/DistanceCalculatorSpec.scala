@@ -2,7 +2,6 @@ package inspide.test
 
 import org.scalatest.GivenWhenThen
 import org.scalatest.featurespec.AnyFeatureSpecLike
-import software.purpledragon.poi4s.model.Waypoint
 
 /**
  * The distance fixtures have been calculated at https://edwilliams.org/gccalc.htm
