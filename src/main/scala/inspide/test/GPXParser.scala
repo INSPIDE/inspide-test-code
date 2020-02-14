@@ -25,7 +25,7 @@ object GPXParser {
   private val toListOfTracks = (gpx: GPX) => gpx.getTracks.asScala.toList
 
   val getPoints = (file: File) => for {
-    fileParser <- Future(new GPXFileParser)
+    fileParser <- Future(new GPXFileParser())
     is <- createInputStream(file)
     gpx <- Future(fileParser.parseGPX(is))
     tracks <- Future(toListOfTracks(gpx))
@@ -41,6 +41,6 @@ object GPXParser {
     avgDistance <- Future(calculateAverageDistance(segments))
     minDistance <- Future(getMinimunDistance(segments))
     maxDistance <- Future(getMaximunDistance(segments))
-  } yield Results(totalPoints, totalDistance, avgDistance, minDistance, maxDistance)
+  } yield Results(file.getName ,totalPoints, totalDistance, avgDistance, minDistance, maxDistance)
 
 }

@@ -34,7 +34,7 @@ class DistanceCalculatorSpec extends AnyFeatureSpecLike with GivenWhenThen {
       val segments = toSegments(Seq(point1, point2, point3))
       val distance = calculateTotalDistance(segments)
       Then("the results are the expected")
-      assert(distance == 58.716 + 62.086)
+      assert(distance == 120.802)
     }
 
     Scenario("Average distance between points") {
@@ -46,7 +46,7 @@ class DistanceCalculatorSpec extends AnyFeatureSpecLike with GivenWhenThen {
       val segments = toSegments(Seq(point1, point2, point3))
       val avgDistance = calculateAverageDistance(segments)
       Then("the results are the expected")
-      assert(avgDistance == (58.716 + 62.086) / 2)
+      assert(avgDistance == 60.401)
     }
 
     Scenario("Minimum distance between points") {

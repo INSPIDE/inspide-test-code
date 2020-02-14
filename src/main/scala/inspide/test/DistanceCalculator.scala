@@ -17,12 +17,12 @@ object DistanceCalculator {
 
   val toSegments = (points: Seq[Point]) => points.zip(points.tail).map(p => Segment(p._1, p._2))
 
-  val calculateTotalDistance = (segments: Seq[Segment]) => segments.map(calculateDistance).sum
+  val calculateTotalDistance = (segments: Seq[Segment]) => fixTo3Decimals(segments.map(calculateDistance).sum)
 
-  val calculateAverageDistance = (segments: Seq[Segment]) => calculateTotalDistance(segments) / segments.length
+  val calculateAverageDistance = (segments: Seq[Segment]) => fixTo3Decimals(calculateTotalDistance(segments) / segments.length)
 
-  val getMinimunDistance = (segments: Seq[Segment]) => segments.map(calculateDistance).min
+  val getMinimunDistance = (segments: Seq[Segment]) => fixTo3Decimals(segments.map(calculateDistance).min)
 
-  val getMaximunDistance = (segments: Seq[Segment]) => segments.map(calculateDistance).max
+  val getMaximunDistance = (segments: Seq[Segment]) => fixTo3Decimals(segments.map(calculateDistance).max)
 
 }

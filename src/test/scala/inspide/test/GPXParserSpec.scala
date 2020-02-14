@@ -19,9 +19,10 @@ class GPXParserSpec extends AnyFeatureSpecLike with GivenWhenThen {
   )
 
   private val ExpectedResults = Results(
+    "test.gpx",
     3,
-    58.716 + 62.086,
-    (58.716 + 62.086) / 2,
+    120.802,
+    60.401,
     58.716,
     62.086
   )
