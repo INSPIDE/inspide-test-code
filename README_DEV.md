@@ -13,3 +13,16 @@ Para ver mejor los resultados sugiero usar
 ```scala
 java -jar target/scala-2.12/solution.jar data 2> /dev/null 
 ```
+
+* Si es necesario podría buscar otra librería para parsear los GPX
+
+#Docker
+No tengo muy claro como se esperaba la creación del contenedor de docker. Así que lo he hecho muy sencillo.
+Para crear la imagen (tras crear el fatjar)
+```bash
+docker build -t solution:1.0.0 -f src/main/docker/Dockerfile .
+```
+Para ejecutar la aplicación 
+```bash
+docker run --rm -it -v ${PWD}/data:/opt/data solution:1.0.0
+```
