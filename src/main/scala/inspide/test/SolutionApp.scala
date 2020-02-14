@@ -19,11 +19,6 @@ class SolutionApp(directory: String) extends Output {
 
 object SolutionApp extends App {
 
-  val directory = args.toList match {
-    case Nil => "data"
-    case dir :: _ => dir
-  }
-
-  Await.result(new SolutionApp(directory).mainFn, Duration.Inf)
+  Await.result(new SolutionApp(args(0)).mainFn, Duration.Inf)
 
 }
