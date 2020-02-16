@@ -13,9 +13,9 @@ assemblyMergeStrategy in assembly := {
   case x => MergeStrategy.first
 }
 
+resolvers += "Bintray" at "https://jcenter.bintray.com/"
 resolvers += "Osgeo Repo" at "http://download.osgeo.org/webdav/geotools/"
 resolvers += "Boundless" at "http://repo.boundlessgeo.com/main"
-resolvers += "Bintray" at "https://jcenter.bintray.com/"
 
 libraryDependencies ++= coreDependencies
 dependencyOverrides ++= coreDependencyOverrides

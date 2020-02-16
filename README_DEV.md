@@ -1,9 +1,3 @@
-# Compilación
-La primera vez que se ejecute sbt clean assembly puede ocurrir que falle la descarga de una librería   
-(javax.media#jai_core;1.1.3!jai_core.jar) que esta en las dependencias transitivas. ***Ejecutar de nuevo*** y no debería  
-volver a fallar.  
-
-
 # Documentación
 No he comentado el código porque creo que es bastante sencillo. No obstante los tests creo que explican bastante sobre   
 lo que hace cada función.  
