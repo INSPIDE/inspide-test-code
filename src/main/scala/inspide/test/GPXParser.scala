@@ -1,6 +1,6 @@
 package inspide.test
 
-import java.io.{File, FileInputStream}
+import java.io.{File, FileInputStream, InputStream}
 
 import inspide.test.DistanceCalculator._
 import me.himanshusoni.gpxparser.modal.{GPX, Track, TrackSegment}
@@ -24,10 +24,24 @@ object GPXParser {
 
   private val toListOfTracks = (gpx: GPX) => gpx.getTracks.asScala.toList
 
+  private val gpxParser = new GPXFileParser()
+
+  /**
+   * This must be done because GPXFileParser is not thread-safe. Internally it uses a SimpleDateFormat that is created
+   * statically. SimpleDataFormat is not thread-safe and the usage of Futures ends up with a lot of stack traces. I would
+   * use Task of Monix or IO from Cats instead of plain Scala Futures. But I wanted to strictly stick to the definition
+   * of this problem, so I have not use any other libraries.
+   * The conflictive line is at [[https://github.com/himanshu-soni/gpx-parser/blob/master/src/main/java/me/himanshusoni/gpxparser/BaseGPX.java#L15]]
+   */
+  private val parseGPX = (inputStream: InputStream) => Future {
+    gpxParser.synchronized {
+      gpxParser.parseGPX(inputStream)
+    }
+  }
+
   val getPoints = (file: File) => for {
-    fileParser <- Future(new GPXFileParser())
     is <- createInputStream(file)
-    gpx <- Future(fileParser.parseGPX(is))
+    gpx <- parseGPX(is)
     tracks <- Future(toListOfTracks(gpx))
     trackPoints <- Future(toListOfTrackSegments(tracks))
     _ <- Future(is.close())
@@ -41,6 +55,6 @@ object GPXParser {
     avgDistance <- Future(calculateAverageDistance(segments))
     minDistance <- Future(getMinimunDistance(segments))
     maxDistance <- Future(getMaximunDistance(segments))
-  } yield Results(file.getName ,totalPoints, totalDistance, avgDistance, minDistance, maxDistance)
+  } yield Results(file.getName, totalPoints, totalDistance, avgDistance, minDistance, maxDistance)
 
 }
